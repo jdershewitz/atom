@@ -1,6 +1,5 @@
 'use strict'
 
-const path = require('path')
 const glob = require('glob')
 const uploadToS3 = require('./lib/upload-to-s3')
 
