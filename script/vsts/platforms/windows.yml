@@ -126,7 +126,7 @@ jobs:
       ARTIFACT_STAGING_DIR: $(Build.ArtifactStagingDirectory)
       BUILD_ID: $(Build.BuildId)
     displayName: Upload crash reports to S3 on release branch
-    condition: and(failed(), eq(variables['IsReleaseBranch'], 'true'))
+    condition: and(failed(), ne(variables['ATOM_RELEASES_S3_KEY'], ''))
 
   - task: PublishBuildArtifacts@1
     inputs:
