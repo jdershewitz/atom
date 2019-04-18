@@ -14,8 +14,15 @@ const argv = yargs
 
 async function uploadCrashReports () {
   const crashesPath = argv.crashReportPath
+  console.log('Looking for crash reports in', crashesPath)
   const crashes = glob.sync('/*.dmp', { root: crashesPath })
+  if (crashes) {
+    console.log('Found', crashes.join(' '))
+  } else {
+    console.log('No crashes found')
+  }
   const bucketPath = argv.s3Path
+  console.log('bucketPath is', bucketPath)
 
   if (crashes && crashes.length > 0) {
     console.log(`Uploading ${crashes.length} private crash reports to S3 under '${bucketPath}'`)
