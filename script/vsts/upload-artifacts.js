@@ -1,5 +1,8 @@
 'use strict'
 
+console.log('AAAAAAAAAAAAAAAAAAAA!!!!!!!!!!!!!!!!!!!!!!!!!!')
+console.error('BBBBBBBBBBBBBBBBBBBB!!!!!!!!!!!!!!!!!!!!!!!!!!')
+
 const fs = require('fs')
 const os = require('os')
 const path = require('path')
