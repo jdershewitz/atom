@@ -118,7 +118,7 @@ jobs:
     condition: and(failed(), eq(variables['IsReleaseBranch'], 'false'))
 
   - script: >
-      node script\vsts\windows-run.js script\vsts\upload-crash-reports.js --crash-report-path "%ARTIFACT_STAGING_DIR%\crash-reports" --s3-path "vsts-artifacts/%BUILD_ID%/"
+      node $(Build.SourcesDirectory)\script\vsts\upload-crash-reports.js --crash-report-path "%ARTIFACT_STAGING_DIR%\crash-reports" --s3-path "vsts-artifacts/%BUILD_ID%/"
     env:
       ATOM_RELEASES_S3_KEY: $(ATOM_RELEASES_S3_KEY)
       ATOM_RELEASES_S3_SECRET: $(ATOM_RELEASES_S3_SECRET)
